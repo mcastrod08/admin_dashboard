@@ -1,8 +1,15 @@
+import { Header } from 'components'
 import React from 'react'
 
 const AllUsers = () => {
   return (
-    <div>AllUsers</div>
+    <main> 
+      <Header  
+        title={"Trips Page "}
+        description="bbbbbbbbbbbbbbbbbbbbbbbbbb"  
+      />
+      All users
+    </main>
   )
 }
 
