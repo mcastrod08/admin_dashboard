@@ -3,7 +3,7 @@ import React from 'react'
 
 const AllUsers = () => {
   return (
-    <main> 
+    <main className="wrapper"> 
       <Header  
         title={"Trips Page "}
         description="bbbbbbbbbbbbbbbbbbbbbbbbbb"  
