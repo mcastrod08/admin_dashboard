@@ -14,6 +14,7 @@ const StatsCard = ({
     
     return (
     <article className="stats-card">
+<<<<<<< HEAD
       <h3 className="text-base font-medium">
         {headerTitle}
       </h3>
@@ -45,6 +46,29 @@ const StatsCard = ({
             alt='trend graph'
         />  
       </div>
+=======
+        <h3 className="text-base font-medium">
+            {headerTitle}
+        </h3>
+
+        <div className="content">
+            <div className="flex flex-col gap-4">
+                <h2 className="text-4xl">
+                    {total}
+                </h2>
+                <div className="flex items-center gap-2">
+                    <figure className="flex items-center gap-1"> 
+                        <img 
+                            src={`/assets/icons/${isDecrement ? 'arrow-down-red.svg' : 'arrow-up-green.svg'} `}
+                            className='size-5' 
+                            alt='arrow'   
+                        /> 
+                    
+                    </figure>
+                </div>
+            </div>
+        </div>
+>>>>>>> 884dc7f33d8f248de27c4fa2c296d3c698173c8c
     </article>
   )
 }
