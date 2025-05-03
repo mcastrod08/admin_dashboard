@@ -47,7 +47,6 @@ const StatsCard = ({
         />  
       </div>
 
-        
     </article>
   )
 }

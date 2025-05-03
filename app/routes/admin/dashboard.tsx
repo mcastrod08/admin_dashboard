@@ -36,9 +36,9 @@ const Dashboard = () => {
             lastMonthCount={userRole.lastMonth}  
           />
         </div>
-      </section>qs
+      </section>
 
-      <section className="flex flex-col gap-6">
+      <section className="flex flex-col gap-6 mt-10">
         <h1 className="text-xl font-semibold text-dark-100">Created Trips</h1>
 
         <div className="trip-grid">
