@@ -143,7 +143,6 @@ export const RIGHT_CONFETTI = {
 };
 
 
-export const user = { name: 'Maria' };
 
 export const dashboardStats = {
     totalUsers: 12450,
@@ -191,7 +190,7 @@ export const dashboardTrips = [{
   },
   ];
 
-  const users = [
+export const users = [
     {
       id: 1,
       name: "John Doe",

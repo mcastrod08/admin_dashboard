@@ -1,14 +1,64 @@
 import { Header } from 'components'
-import React from 'react'
+import { ColumnsDirective, GridComponent } from "@syncfusion/ej2-react-grids"
+import { ColumnDirective } from '@syncfusion/ej2-react-charts'
+import { cn, formatDate } from '~/lib/utils'
+import { getAllUsers } from '~/appwrite/auth'
+import type { Route } from './+types/all-users'
 
-const AllUsers = () => {
+
+export const loader = async () => {
+  const { users, total } = await getAllUsers(10,0);
+  return { users, total};
+}
+const AllUsers = ({ loaderData }: Route.ComponentProps) => {
+  const { users } = loaderData
   return (
-    <main className="wrapper"> 
+    <main className="all-users wrapper"> 
       <Header  
-        title={"Trips Page "}
-        description="bbbbbbbbbbbbbbbbbbbbbbbbbb"  
+        title={"Manage Users "}
+        description="Detailed user profiles"  
       />
-      All users
+      <GridComponent dataSource={users} gridLines="None">
+        <ColumnsDirective>
+          <ColumnDirective
+            field="name"  
+            headerText="Name"
+            width="200"
+            textAlign="Left"
+            template={(props: UserData) => (
+              <div className="flex items-center gap-1.5 px-4">
+                <img src={props.imageUrl} alt='users' referrerPolicy='no-referrer' className="rounded-full size-8 aspect-square" />
+                <span>{props.name}</span>
+              </div>
+            )}
+          />  
+          <ColumnDirective
+            field="email"  
+            headerText="Email Address"
+            width="200"
+            textAlign="Left"
+          />
+          <ColumnDirective
+            field="joinedAt"  
+            headerText="Date Joined"
+            width="140"
+            textAlign="Left"
+            template={({ joinedAt }:{ joinedAt: string }) => formatDate(joinedAt)}
+          />
+          <ColumnDirective
+            field="status"  
+            headerText="Type"s
+            width="100"
+            textAlign="Left"
+            template={({status}: UserData) => (
+              <article className={cn('status-column', status ==="user" ? 'bg-success-50' : 'bg-light-300')}>
+                <div className={cn('size-1.5 rounded-full', status === 'user' ? 'bg-success-700' : 'text-gray-500')}/>
+                <h3>{status}</h3>
+              </article>
+            )}
+          /> 
+        </ColumnsDirective>
+      </GridComponent>
     </main>
   )
 }
